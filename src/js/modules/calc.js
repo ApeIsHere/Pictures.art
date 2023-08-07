@@ -11,7 +11,6 @@ const calc = (size, material, options, promocode, result) => {
     const calcFunction = () => {
         sum = Math.round((+sizeBlock.value) * (+materialBlock.value) + (+optionsBlock.value));
 
-        console.log(optionsBlock.value);
         if (sizeBlock.value == '' || materialBlock.value == '') {
             resultBlock.textContent = 'Пожалуйста выберите размер и материал картины';
         } else if (promocodeBlock.value === 'IWANTPOPART') {
