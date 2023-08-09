@@ -1,6 +1,20 @@
-const accordion = (titleSelector) => {
-    const btns = document.querySelectorAll(titleSelector);
-        //   blocks = document.querySelectorAll(blockSelector);
+const accordion = (triggersSelector) => {
+    const btns = document.querySelectorAll(triggersSelector);
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.classList.toggle('active-style');
+            this.nextElementSibling.classList.toggle('active-content');
+
+            if (this.classList.contains('active-style')) {
+                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 80 + "px";
+            } else {
+                this.nextElementSibling.style.maxHeight = '0px';
+            }
+        });
+    });
+
+    //   blocks = document.querySelectorAll(itemsSelector);
 
     // blocks.forEach(block => {
     //     block.classList.add('animated', 'fadeInDown');
@@ -16,23 +30,6 @@ const accordion = (titleSelector) => {
     //         }
     //     });
     // });
-
-
-
-    btns.forEach(btn => {
-        btn.addEventListener('click', function() {
-
-            this.classList.toggle('active-style');
-            this.nextElementSibling.classList.toggle('active-content');
-            
-            if (this.classList.contains('active-style')) {
-                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 80 + "px";
-
-            } else {
-                this.nextElementSibling.style.maxHeight = '0px';
-            }
-        });
-    });
 };
 
 export default accordion;

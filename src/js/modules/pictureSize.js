@@ -3,6 +3,7 @@ const pictureSize = (imgSelector) => {
 
     function showImg (block) {
         const img = block.querySelector('img');
+        // something.png => something-1.png
         img.src = img.src.slice(0, -4) + '-1.png';
         block.querySelectorAll('p:not(.sizes-hit)').forEach(p => {
             p.style.display = 'none';
@@ -11,6 +12,7 @@ const pictureSize = (imgSelector) => {
 
     function hideImg (block) {
         const img = block.querySelector('img');
+        // something-1.png => something.png
         img.src = img.src.slice(0, -6) + '.png';
         block.querySelectorAll('p:not(.sizes-hit)').forEach(p => {
             p.style.display = 'block';

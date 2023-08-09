@@ -1,4 +1,4 @@
-import { postData } from "../services/requests";
+import {postData} from '../services/requests';
 
 const forms = () => {
     const form = document.querySelectorAll('form'),
@@ -63,9 +63,6 @@ const forms = () => {
             statusMessage.appendChild(textMessage);
 
             const formData = new FormData(item);
-            if (item.classList.contains == "calc_form") {
-                console.log(item.textContent);
-            }
             let api;
             item.closest('.popup-design') || item.classList.contains('calc_form') ? api = path.designer : api = path.question;
             console.log(api);
@@ -82,7 +79,6 @@ const forms = () => {
                 })
                 .finally(() => {
                     clearInputs();
-                    item.reset();
                     setTimeout(() => {
                         statusMessage.remove();
                         item.style.display = 'block';
